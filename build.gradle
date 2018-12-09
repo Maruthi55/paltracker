@@ -29,6 +29,7 @@ dependencies {
 }
 bootRun.environment([
         "WELCOME_MESSAGE": "Hello from the review environment",
+        
 ])
 
 test.environment([
