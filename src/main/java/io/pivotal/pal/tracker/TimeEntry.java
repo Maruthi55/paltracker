@@ -4,30 +4,12 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class TimeEntry {
+
     private long id;
     private long projectId;
     private long userId;
     private LocalDate date;
     private int hours;
-
-    public TimeEntry(long projectId, long userId, LocalDate date, int hours) {
-        this.projectId = projectId;
-        this.userId = userId;
-        this.date = date;
-        this.hours = hours;
-    }
-
-    public TimeEntry() {
-
-    }
-
-    public TimeEntry(long id, long projectId, long userId, LocalDate date, int hours) {
-        this.id = id;
-        this.projectId = projectId;
-        this.userId = userId;
-        this.date = date;
-        this.hours = hours;
-    }
 
     public long getId() {
         return id;
@@ -68,11 +50,14 @@ public class TimeEntry {
     public void setHours(int hours) {
         this.hours = hours;
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, projectId, userId, date, hours);
+    public TimeEntry(long id, long projectId, long userId, LocalDate date , int hour) {
+        this.id=id;
+        this.projectId=projectId;
+        this.userId=userId;
+        this.date = date;
+        this.hours = hour;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -84,6 +69,23 @@ public class TimeEntry {
                 hours == timeEntry.hours &&
                 date.equals(timeEntry.date);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, projectId, userId, date, hours);
+    }
+
+    public TimeEntry(long projectId, long userId, LocalDate date , int hour) {
+        this.projectId=projectId;
+        this.userId=userId;
+        this.date = date;
+        this.hours = hour;
+    }
+
+    public TimeEntry() {
+
+    }
+
     @Override
     public String toString() {
         return "TimeEntry{" +
